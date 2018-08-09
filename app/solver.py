@@ -12,11 +12,11 @@ class Solver:
 
   def _place_in_row(self, row):
     if row == self.board.size:
-      self._addSolution()
+      self._add_solution()
     else:
       self._try_in_row(row)
 
-  def _addSolution(self):
+  def _add_solution(self):
     piece_positions = self.board.get_piece_positions()
     solution = Solution(self.board.size, piece_positions)
     self._solutions.append(solution)
