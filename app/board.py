@@ -12,6 +12,16 @@ class Board:
   def remove(self, row, col):
     self.positions[row][col] = False
 
+  def get_piece_positions(self):
+    piece_positions = []
+
+    for row in range(self.size):
+      for col in range(self.size):
+        if self.has_piece(row, col):
+          piece_positions.append((row, col))
+
+    return piece_positions
+
   def display(self):
     for row in self.positions:
       print('|', end='')

@@ -1,22 +1,25 @@
 from app.board import Board
+from app.solution import Solution
 
 class Solver:
   def __init__(self, size):
     self.board = Board(size)
 
   def solve(self):
-    self._solutions = 0
+    self._solutions = []
     self._place_in_row(0)
     return self._solutions
 
   def _place_in_row(self, row):
     if row == self.board.size:
-      self._solutions += 1
-      print('Found solution %s!' % self._solutions)
-      self.board.display()
-      print('')
+      self._addSolution()
     else:
       self._try_in_row(row)
+
+  def _addSolution(self):
+    piece_positions = self.board.get_piece_positions()
+    solution = Solution(self.board.size, piece_positions)
+    self._solutions.append(solution)
 
   def _try_in_row(self, row):
     for col in range(self.board.size):

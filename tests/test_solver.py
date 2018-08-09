@@ -11,4 +11,4 @@ class TestSolver:
   def test_solution_size(self, board_size, expected_solutions):
     solver = Solver(board_size)
     solutions = solver.solve()
-    assert solutions == expected_solutions
+    assert len(solutions) == expected_solutions
