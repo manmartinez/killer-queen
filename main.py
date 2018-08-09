@@ -1,4 +1,4 @@
-from solver import Solver
+from app.solver import Solver
 
 size = input("Enter the board size: ")
 s = Solver(int(size))

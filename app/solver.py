@@ -1,17 +1,18 @@
-from board import Board
+from app.board import Board
 
 class Solver:
   def __init__(self, size):
     self.board = Board(size)
 
   def solve(self):
-    self.solutions = 0
+    self._solutions = 0
     self._place_in_row(0)
+    return self._solutions
 
   def _place_in_row(self, row):
     if row == self.board.size:
-      self.solutions += 1
-      print('Found solution %s!' % self.solutions)
+      self._solutions += 1
+      print('Found solution %s!' % self._solutions)
       self.board.display()
       print('')
     else:
