@@ -14,10 +14,10 @@ class Board:
 
   def display(self):
     for row in self.positions:
-      print '|',
+      print('|', end='')
       for value in row:
         char = 'Q|' if value else '_|'
-        print char,
+        print(char, end='')
       print('')
 
   def _initPositions(self):

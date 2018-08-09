@@ -5,29 +5,24 @@ class Solver:
     self.board = Board(size)
 
   def solve(self):
+    self.solutions = 0
     self._place_in_row(0)
-    self.board.display()
 
   def _place_in_row(self, row):
     if row == self.board.size:
-      return True
+      self.solutions += 1
+      print('Found solution %s!' % self.solutions)
+      self.board.display()
+      print('')
     else:
-      return self._try_in_row(row)
+      self._try_in_row(row)
 
   def _try_in_row(self, row):
-    success = False
-
     for col in range(self.board.size):
       if self._is_valid(row, col):
         self.board.place(row, col)
-
-        if self._place_in_row(row + 1):
-          success = True
-          break
-        else:
-          self.board.remove(row, col)
-
-    return success
+        self._place_in_row(row + 1)
+        self.board.remove(row, col)
 
   def _is_valid(self, row, col):
     return self._top_is_clear(row, col) and \
