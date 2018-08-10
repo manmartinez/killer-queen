@@ -17,7 +17,13 @@ This is my take on the Cuenca programming challenge
     $ source venv/bin/activate
     ```
 
-4. Run it!
+4. Setup env variables in an `.env` file. It should contain the following:
+
+    ```
+    DATABASE_URL=postgres://<host>/<datasbase>
+    ```
+
+5. Run it!
 
     ```
     $ python -m killer_queen

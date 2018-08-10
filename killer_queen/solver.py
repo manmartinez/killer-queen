@@ -20,7 +20,7 @@ class Solver:
 
     def _add_solution(self):
         piece_positions = self.board.get_piece_positions()
-        solution = Solution(self.board.size, piece_positions)
+        solution = Solution(size=self.board.size, positions=piece_positions)
         self._solutions.append(solution)
 
     def _try_in_row(self, row):

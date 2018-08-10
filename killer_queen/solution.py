@@ -1,19 +1,21 @@
+from sqlalchemy import Column, Integer, JSON
 from killer_queen.board import Board
+from killer_queen.base_model import BaseModel
 
 
-class Solution:
+class Solution(BaseModel):
+    __tablename__ = 'solutions'
 
-    def __init__(self, size, positions):
-        self.size = size
-        self.positions = positions
-        self._board = None
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    size = Column(Integer, nullable=False)
+    positions = Column(JSON, nullable=False)
 
     def display(self):
         board = self._get_board()
         board.display()
 
     def _get_board(self):
-        if self._board is None:
+        if not hasattr(self, '_board'):
             self._board = self._build_board()
         return self._board
 

@@ -13,3 +13,9 @@ clean:
 
 install: venv
 	pip install --quiet -r requirements.txt
+
+lint:
+	pycodestyle killer_queen tests
+
+install-dev: install
+	pip install --quiet -r requirements-dev.txt
